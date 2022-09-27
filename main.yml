@@ -3,13 +3,20 @@
   hosts: amazon
   become: true
   vars_files:
-    - variables.yml
+    - variable.yml
   tasks:
 
     - name: "installing apache webserver"
       yum:
         name: httpd
         state: present
+
+    - name: "installing php package"
+      yum:
+        name:
+          - php-fpm
+          - php
+      become: yes
 
     - name: "creating httpd.conf fron httpd.conf.tmpl"
       template:
