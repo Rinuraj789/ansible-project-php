@@ -3,7 +3,7 @@
   hosts: amazon
   become: true
   vars_files:
-    - variable.yml
+    - variables.yml
   tasks:
 
     - name: "installing apache webserver"
